@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Radial Progress Bar Examples</title>
+        <link rel="stylesheet" href="examples.css">
+    </head>
+    <body>
+        <section>
+          <div id="example1" class="example"></div>
+          <h2>Radial Progress Bar</h2>
+          <p>The default radial progress bar. Blue progress bar, semi-transparent background path, 40px progress text in the center. Subsequent percentage settings can be queued.</p>
+          <!-- <p><strong>HTML</strong></p>
+          <pre>
+        &lt;div id="example1"&gt;&lt;/div&gt;</pre>
+          <p><strong>JavaScript</strong></p>
+          <pre>
+        jQuery("#example1").radialProgress("init", {
+          'size': 100,
+          'fill': 5
+        }).radialProgress("to", {'perc': 50})
+          .radialProgress("to", {'perc': 30})
+          .radialProgress("to", {'perc': 100});</pre>-->
+        </section>
+        <section>
+          <div id="pie" class="example" style="width: 100px;"></div>
+          <h2>Simple Pie Chart</h2>
+          <p>Multiple radial progress bars layered on top and offsetted by each other. Values are visible in the center as a list. Data is loaded in initialization.</p>
+        </section>
+        <section>
+          <div id="multi" class="example" style="width: 100px;"></div>
+          <h2>Concentric Bars</h2>
+          <p>Multiple radial progress bars in concentric circles around each other. Defined as regular radial progress bar, empty on init, each bar can be set separately or together. </p>
+          <p>With ranges and periodic updates the clock on the left can be easily created.</p>
+        </section>
+        <section>
+          <h2>Inline Icons</h2>
+          With a small size and fill settings and transparent text inline icon progress bar <span id="smallrad" style="display: inline-block;"></span> or pie chart <span id="smallpie" style="display: inline-block;"></span> can be created.</span>
+        </section>
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="radial-progress-bar.js"></script>
+        <script src="examples.js"></script>
+    </body>
+</html>

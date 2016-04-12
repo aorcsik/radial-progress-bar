@@ -1,0 +1,25 @@
+{
+  "name": "radial-progress-bar",
+  "homepage": "https://github.com/aorcsik/radial-progress-bar",
+  "authors": [
+    "Antal Orcsik <aorcsik@gmail.com>"
+  ],
+  "description": "jQuery module to create radial progress bars",
+  "main": "radial-progress-bar.js",
+  "keywords": [
+    "jquery",
+    "progress",
+    "bar"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
+}

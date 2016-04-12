@@ -1,0 +1,43 @@
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+  margin-top: 20px;
+  padding: 0
+}
+
+section p,
+section pre {
+  margin-left: 120px;
+}
+
+section pre {
+  background: rgba(0,0,0,0.1);
+  padding: 10px;
+  border-radius: 3px
+}
+
+h2 {
+  margin: 0 0 10px 0;
+}
+
+
+.example {
+  float: left;
+  margin-right: 20px;
+}
+
+@media (min-width: 481px) {
+  section {
+    width: 45%;
+    float: left;
+  }
+  section:nth-child(odd) {
+    clear: both;
+  }
+}
