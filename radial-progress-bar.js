@@ -131,7 +131,6 @@ radialProgress.prototype.toPerc = function(options) {
         if (next) self.toPerc(next);
         return;
       }
-      self.perc += step;
       var first_rot = self.first_rot_base;
       var second_rot = self.second_rot_base;
       if (self.perc < 50) {
@@ -155,6 +154,7 @@ radialProgress.prototype.toPerc = function(options) {
         for (var ti = self.options['lines'] - (self.options['line'] + 1); ti > 0; ti--) text = text + "<br>&nbsp;";
         self.$radialLabel.html(text);
       }
+      self.perc += step;
     }, interval_delay);
   } else {
     this.queue.push(options);
