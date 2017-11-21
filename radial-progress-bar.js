@@ -150,10 +150,10 @@ radialProgress.prototype.toPerc = function(options) {
       if (self.$radialLabel) {
         var value = targetPerc ? self.perc/targetPerc * (targetPerc - offset) : 0;
         value = self.options['range'][0] + value / 100 * (self.options['range'][1] - self.options['range'][0]);
-        var text = Math.round(value + self.options['symbol']);
+        var text = Math.round(value);
         for (var ti = 0; ti < self.options['line']; ti++) text = "&nbsp;<br>" + text;
         for (var ti = self.options['lines'] - (self.options['line'] + 1); ti > 0; ti--) text = text + "<br>&nbsp;";
-        self.$radialLabel.html(text);
+        self.$radialLabel.html(text + self.options['symbol']);
       }
     }, interval_delay);
   } else {
