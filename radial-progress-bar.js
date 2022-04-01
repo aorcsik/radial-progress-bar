@@ -23,9 +23,10 @@ function radialProgress($obj, options) {
 
   this.options['size'] = parseInt(this.options['size'], 10);
   this.options['fill'] = parseInt(this.options['fill'], 10);
-  this.options['font-size'] = parseInt(this.options['font-size'], 10);
+  this.options['font-size'] = parseInt(this.options['fontSize'] || this.options['font-size'], 10);
   this.options['margin'] = Math.max(0, parseInt(this.options['margin'], 10));
-  this.options['text-color'] = this.options['text-color'] || this.options['color'];
+  this.options['text-color'] = this.options['textColor'] || this.options['text-color'] || this.options['color'];
+  this.options['font-family'] = this.options['fontFamily'] || this.options['font-family'];
 
   $obj.css({
     "position": "relative",
