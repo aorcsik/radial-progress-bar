@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Radial Progress Bar Examples</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+          body, html {
+            font-family: "Helvetica", "Arial", sans-serif;
+            font-size: 20px;
+            padding: 0;
+            margin: 0;
+          }
+
+          section {
+            display: flex;
+            margin-left: 1em;
+          }
+
+          section .example {
+            width: 100px;
+            padding-top: 1em;
+            flex-shrink: 0;
+            margin-right: 1em;
+          }
+
+          section .description {
+            width: 50%;
+            margin-right: 1em;
+          }
+
+          section .code {
+            width: 50%;
+            margin-right: 1em;
+          }
+
+          section .code pre {
+            font-size: .65em;
+            background: rgba(0, 0, 0, .1);
+            padding: .5em;
+            border-radius: .5em;
+          }
+
+          @media (max-width: 481px) {
+            section {
+              display: block;
+            }
+
+            section .description,
+            section .code {
+              width: auto;
+            }
+
+            section .code pre {
+              overflow: scroll;
+            }
+          }
+
+          #forkongithub a {
+            background:#000;
+            color:#fff;
+            text-decoration:none;
+            font-family:arial,sans-serif;
+            text-align:center;
+            font-weight:bold;
+            padding:5px 40px;
+            font-size:16px;
+            line-height:2rem;
+            position:relative;
+            transition:0.5s;
+            display: block;
+          }
+          #forkongithub a:hover{
+            background:#c11;
+            color:#fff;
+          }
+          #forkongithub a::before,#forkongithub a::after{
+            content:"";
+            width:100%;
+            display:block;
+            position:absolute;
+            top:1px;
+            left:0;
+            height:1px;
+            background:#fff;
+          }
+          #forkongithub a::after{
+            bottom:1px;
+            top:auto;
+          }
+          
+          @media screen and (min-width:800px) {
+            #forkongithub{
+              position:fixed;
+              top:0;
+              right:0;
+              width:200px;
+              overflow:hidden;
+              height:200px;
+              z-index:9999;
+            }
+            #forkongithub a{
+              width: 200px;
+              position:absolute;
+              top:40px;
+              right:-60px;
+              padding: 5px 30px 5px 50px;
+              transform:rotate(45deg);
+              -webkit-transform:rotate(45deg);
+              -ms-transform:rotate(45deg);
+              -moz-transform:rotate(45deg);
+              -o-transform:rotate(45deg);
+              box-shadow:4px 4px 10px rgba(0,0,0,0.8);
+            }
+          }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="radial-progress-bar.js"></script>
+    </head>
+    <body>
+      <span id="forkongithub"><a href="https://github.com/aorcsik/radial-progress-bar">Fork me on GitHub</a></span>
+
+        <section>
+          <div class="example">
+            <div id="example1"></div>
+            <script>
+              jQuery("#example1")
+                .radialProgress("init", { size: 100, fill: 5 })
+                .radialProgress("to", { perc: 50, time: 2500 })
+                .radialProgress("to", { perc: 25, time: 2500 })
+                .radialProgress("to", { perc: 100, time: 2500 });
+            </script>
+          </div>
+          <div class="description">
+            <h2>Radial Progress Bar</h2>
+            <p>
+              The default blue progress bar, semi-transparent background path, 
+              and 40px progress text in the center. Subsequent percentage 
+              settings can be queued.
+            </p>
+          </div>
+          <div class="code">
+<pre>
+jQuery("#example1")
+  .radialProgress("init", { size: 100, fill: 5 })
+  .radialProgress("to", { perc: 50, time: 2500 })
+  .radialProgress("to", { perc: 25, time: 2500 })
+  .radialProgress("to", { perc: 100, time: 2500 });</pre>
+</div>
+        </section>
+        <section>
+          <div class="example">
+            <div id="pie"></div>
+            <script>
+              jQuery("#pie")
+                .radialPieChart("init", { 
+                  fontSize: 13, fill: 20,
+                  data: [
+                    { color: "#2DB1E4", perc: 25 },
+                    { color: "#9CCA13", perc: 30 },
+                    { color: "#A4075E", perc: 45 }
+                  ]
+                });
+            </script>
+          </div>
+          <div class="description">
+            <h2>Simple Pie Chart</h2>
+            <p>
+              Multiple radial progress bars layered on top and 
+              offsetted by each other. Values are visible in the 
+              center as a list. Data is loaded in initialization.
+            </p>
+          </div>
+          <div class="code">
+<pre>
+jQuery("#pie")
+  .radialPieChart("init", { 
+    fontSize: 13, fill: 20,
+    data: [
+      { color: "#2DB1E4", perc: 25 },
+      { color: "#9CCA13", perc: 30 },
+      { color: "#A4075E", perc: 45 }
+    ]
+  });
+</pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="example">
+            
+          </div>
+          <div class="description">
+            <h2>Inline Icons</h2>
+            <p>
+              With a small size and fill settings and transparent text 
+              inline icon progress bar 
+              <span id="smallrad" style="display: inline-block;"></span> 
+              or pie chart 
+              <span id="smallpie" style="display: inline-block;"></span> 
+              can be created.
+            </p>
+
+            <script>
+              jQuery("#smallrad")
+                .radialProgress("init", {
+                  size: 20, fill: 2, textColor: "transparent"
+                })
+                .radialProgress("to", { perc : 66 });
+
+              jQuery("#smallpie")
+                .radialPieChart("init", {
+                  size: 20, fill: 5, textColor: "transparent",
+                  data: [
+                    { color: "#2DB1E4", perc: 30 },
+                    { color: "#9CCA13", perc: 40 },
+                    { color: "#A4075E", perc: 30 }
+                  ]
+                });
+            </script>
+          </div>
+          <div class="code">
+<pre>
+jQuery("#smallrad")
+  .radialProgress("init", {
+    size: 20, fill: 2, textColor: "transparent"
+  })
+  .radialProgress("to", { perc : 66 });
+</pre>
+<pre>
+jQuery("#smallpie")
+  .radialPieChart("init", {
+    size: 20, fill: 5, textColor: "transparent",
+    data: [
+      { color: "#2DB1E4", perc: 30 },
+      { color: "#9CCA13", perc: 40 },
+      { color: "#A4075E", perc: 30 }
+    ]
+  });
+  </pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="example">
+            <div id="multi" style="width: 100px;"></div>
+            <script>
+              var c = jQuery("#multi")
+                .radialMultiProgress("init", {
+                  fontSize: 14, fill: 25,
+                  data: [
+                    { color: "#2DB1E4", range: [0, 12] },
+                    { color: "#9CCA13", range: [0, 59] },
+                    { color: "#A4075E", range: [0, 59] }
+                  ]
+                });
+
+              (function(clock) {
+                var dh, dm, ds;
+                setInterval(function() {
+                  var date = new Date(),
+                      h = date.getHours() % 12, 
+                      m = date.getMinutes(), 
+                      s = date.getSeconds();
+                  if (dh !== h) { dh = h;
+                    clock.radialMultiProgress("to", { 
+                      index: 0, perc: h, time: (h ? 100 : 10) 
+                    });
+                  }
+                  if (dm !== m) { dm = m;
+                    clock.radialMultiProgress("to", { 
+                      index: 1, perc: m, time: (m ? 100 : 10) 
+                    }); 
+                  }
+                  if (ds !== s) { ds = s;
+                    clock.radialMultiProgress("to", { 
+                      index: 2, perc: s, time: (s ? 100 : 10) 
+                    }); 
+                  }
+                }, 1000);
+              })(c);
+
+              </script>
+          </div>
+          <div class="description">
+            <h2>Concentric Bars</h2>
+            <p>
+              Multiple radial progress bars in concentric circles 
+              around each other. Defined as regular radial progress 
+              bar, empty on init, each bar can be set separately or 
+              together.
+            </p>
+            <p>
+              With ranges and periodic updates the clock on the left 
+              can be easily created.
+            </p>
+          </div>
+          <div class="code">
+<pre>
+var c = jQuery("#multi")
+  .radialMultiProgress("init", {
+    fontSize: 14, fill: 25,
+    data: [
+      { color: "#2DB1E4", range: [0, 12] },
+      { color: "#9CCA13", range: [0, 59] },
+      { color: "#A4075E", range: [0, 59] }
+    ]
+  });
+</pre>
+<pre>
+(function(clock) {
+  var dh, dm, ds;
+  setInterval(function() {
+    var date = new Date(),
+        h = date.getHours() % 12, 
+        m = date.getMinutes(), 
+        s = date.getSeconds();
+    if (dh !== h) { dh = h;
+      clock.radialMultiProgress("to", { 
+        index: 0, perc: h, time: (h ? 100 : 10) 
+      });
+    }
+    if (dm !== m) { dm = m;
+      clock.radialMultiProgress("to", { 
+        index: 1, perc: m, time: (m ? 100 : 10) 
+      }); 
+    }
+    if (ds !== s) { ds = s;
+      clock.radialMultiProgress("to", { 
+        index: 2, perc: s, time: (s ? 100 : 10) 
+      }); 
+    }
+  }, 1000);
+})(c);
+</pre>
+          </div>
+        </section>
+    </body>
+</html>
